@@ -6,7 +6,7 @@
 /*   By: dabeloos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/19 19:45:50 by dabeloos          #+#    #+#             */
-/*   Updated: 2018/08/19 19:49:37 by dabeloos         ###   ########.fr       */
+/*   Updated: 2018/08/19 20:28:10 by dabeloos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ struct s_sudoku_grid	*ft_place_number(struct s_sudoku_grid *grid,
 			newgrid = ft_check_subgrid(newgrid, var[2], var[3]);
 			if (newgrid != (void*)0)
 			{
-				count += ft_check_fullness(newgrid);
-				if (count == 1)
+				count = count + ft_check_fullness(newgrid);
+				if (ft_check_fullness(newgrid) == 1)
 					return (newgrid);
 				newgrid = ft_place_min_stack(newgrid, count);
 				if (newgrid == (void*)0)
